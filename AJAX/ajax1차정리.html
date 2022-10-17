@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    //ajax 호출 방식을 일반화 시킴
+    var $={};
+
+    $.ajax = function(p_set) { //객체가 들어와야 헌다... 띠용?
+        var v_ajax = new XMLHttpRequest();
+        v_ajax.open(p_set.method, p_set.url, true);
+        v_ajax.onreadystatechange = function () {
+
+            if (v_ajax.readyState == 4 && v_ajax.status == 200) {
+                p_set.success(v_ajax.responseText); // 처리
+            }
+        }
+        v_ajax.send();
+    }
+
+    //호출
+    $.ajax({
+        method:"get",
+        url:"dummy.txt",
+        success:function (p_rslt){ // 잘 점검해보쟈
+            alert("다시 넘어온 값은 " + p_rslt);
+        }
+    });
+
+    //호출
+    $.ajax({
+        method:"get",
+        url:"merong.json",
+        success:function (p_rslt){
+            alert("다시 넘어온 값은 " + p_rslt);
+        }
+    });
+</script>

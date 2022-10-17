@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>열어 준 창</h1>
+    <textarea id="old_text">띠용</textarea>
+    <br>
+    <input type="button" value="핳하 버튼" id="old_btn" onclick="f_dayoung()">
+    <br>
+
+    <input type="button" value="새창열기" onclick="f_winOpen()">
+    <input type="button" value="새창닫기" onclick="f_winClose()">
+    <script>
+        function f_dayoung() {
+            //window와 document의 관계 -> window.document의 관계
+            v_newWin.document.querySelector("#new_text").value=
+                window.document.querySelector("#old_text").value;
+            
+                v_newWin.document.querySelector("#new_btn").value= "난 승돌이다";
+                
+        }
+
+        //새창 띄우기
+        var v_newWin; // 전역변수 선언
+        function f_winOpen() {
+            //두번째 매개변수 name칸에 이름을 안주면 계속 새 탭이 열림.
+            //세번째 매개변수 새 창의 크기를 지정해주며 현재 브라우져에서 떨어져 나옴 (위치 지정 가능) 
+            //open은 열린창을 나타내는 값을 리턴해 줌.
+            v_newWin = window.open("새창.html", "sunju", "width=300, height=300 , left=-200, top=-500");
+        }
+
+        function f_winClose() {
+            v_newWin.close();
+        }
+    </script>
+</body>
+
+</html>

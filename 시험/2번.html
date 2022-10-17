@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    //배열 다루기
+    var v_ranDatas = []; //빈 배열 생성
+
+    for (var i = 1; i <= 20; i++) {
+        v_ranDatas.push(Math.ceil(Math.random() * 45));
+        //v_ranDatas[v_ranDatas.length] = Math.ceil(Math.random()*45); 위 코드와 동작이 정확히 같음.
+    }
+
+    alert("만들어진 배열은 : " + v_ranDatas);
+
+    var v_minValue = v_ranDatas[0]; //첫번째 index의 값이 최소라고 가정
+    for (var i = 1; i < v_ranDatas.length; i++) {
+        if (v_ranDatas[i] < v_minValue) {
+            v_minValue = v_ranDatas[i];
+        }
+    }
+
+    alert("최소값은: " + v_minValue + "입니당.")
+    // 최소, 최대값 구하는 방식이 중요한 이유는 sort(정렬) 이해의 기본 스텝이기 때문
+
+    function f_minVal(p_arr) {
+        var v_minValue = v_ranDatas[0]; //첫번째 index의 값이 최소라고 가정
+        for (var i = 1; i < v_ranDatas.length; i++) {
+            if (v_ranDatas[i] < v_minValue) {
+                v_minValue = v_ranDatas[i];
+            }
+        }
+        return v_minValue; // 찾은 최소값 리턴
+    }
+
+    alert("만들어진 배열은 : " + v_ranDatas); // 생성된 배열 눈으로 확인
+    alert("최소값은: " + f_minVal(v_ranDatas) + "입니당." ); // 배열 속 최소값 눈으로 확인
+
+</script>

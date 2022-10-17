@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="id_disp"></div>
+    <input type="button" value="xml" onclick="f_xml()">
+    <input type="button" value="제이슨" onclick="f_json()">
+    <input type="button" value="테스트" onclick="f_csv()">
+    <input type="button" value="ajax호출" onclick="f_ajax()">
+    <script>
+        var v_disp = document.querySelector('#id_disp');
+
+        function f_xml() {
+            var v_ajax = new XMLHttpRequest();
+            v_ajax.open("get", "huk.xml", true)
+            v_ajax.onreadystatechange = function () {
+                if (v_ajax.readyState == 4 && v_ajax.status == 200) {
+                    // alert(v_ajax.responseText);  xml은 이렇게 받지 않는다. xml은 문자열로 받으면 다루기가 어려움
+                    //xml문서나 html문서나 태그로 이루어진 문서인건 매 한가지
+                    var v_xmlDoc = v_ajax.responseXML;
+                    f_test3(v_xmlDoc);
+                    /*
+                    var v_friends = v_xmlDoc.querySelectorAll("friend");
+                    var v_children = v_friends[0].children;
+                    for (var i = 0; i < v_children.length; i++) {
+                        alert(v_children[i].innerHTML);
+                    }
+                    */
+
+                }
+            }
+            v_ajax.send();
+        }
+
+        function f_test3(p_doc) {
+            //p_doc는 document객체, xml은 문서구조만 잘 파악하면 큰 문제 X
+            var v_friends = p_doc.querySelectorAll("friend");
+            var v_tblStr = "<table border=1>";
+            for (var i = 0; i < v_friends.length; i++) {
+                var v_children = v_friends[i].children;
+                v_tblStr += "<tr>";
+                v_tblStr += "<td>" + v_children[0].innerHTML + "</td>";
+                v_tblStr += "<td>" + v_children[1].innerHTML + "</td>";
+                v_tblStr += "<td>" + v_children[2].innerHTML + "</td>";
+                v_tblStr += "</tr>";
+            }
+            v_tblStr += "</table>";
+            v_disp.innerHTML = v_tblStr;
+        }
+
+
+        function f_json() {
+            var v_ajax = new XMLHttpRequest();
+            v_ajax.open("get", "merong.json", true);
+            v_ajax.onreadystatechange = function () {
+                if (v_ajax.readyState == 4 && v_ajax.status == 200) {
+                    alert(v_ajax.responseText); //문자열이라니..!
+                    //배열로 바꾸려면
+                    var v_arr = JSON.parse(v_ajax.responseText);
+                    f_test2(v_arr);
+                }
+            }
+            v_ajax.send();
+
+        }
+
+        function f_test2(p_arr) {
+            //넘어온 값을 id_disp에 table형식으로 출력하기....휴
+            var v_tblStr = "<table border=1>";
+            for (var i = 0; i < p_arr.length; i++) {
+                v_tblStr += "<tr>";
+                v_tblStr += "<td>" + p_arr[i].name + "</td>";
+                v_tblStr += "<td>" + p_arr[i].age + "</td>";
+                v_tblStr += "<td>" + p_arr[i].alias + "</td>";
+                v_tblStr += "</tr>";
+            }
+            v_tblStr += "</table>";
+            v_disp.innerHTML = v_tblStr;
+
+        }
+
+
+        var f_csv = function () {
+            var v_ajax = new XMLHttpRequest();
+            v_ajax.open("get", "test.csv", true);
+            v_ajax.onreadystatechange = function () {
+                if (v_ajax.readyState == 4 && v_ajax.status == 200) {
+                    f_test(v_ajax.responseText);
+                }
+            }
+            v_ajax.send();
+        }
+
+        function f_test(p_arg) {
+            var v_lines = p_arg.split("\n");
+            var v_tblStr = "<table border=1>";
+            for (var i = 0; i < v_lines.length; i++) {
+                var v_tds = v_lines[i].split(",");
+                v_tblStr += "<tr>";
+                v_tblStr += "<td>" + v_tds[0] + "</td>";
+                v_tblStr += "<td>" + v_tds[1] + "</td>";
+                v_tblStr += "<td>" + v_tds[2] + "</td>";
+                v_tblStr += "</tr>";
+
+            }
+            v_tblStr += "</table>";
+            v_disp.innerHTML = v_tblStr; //주의할 점! 완성되지 않은 문자열은 넣으면 이상하게 나옴!
+        }
+
+        var v_myRoze;
+        function f_ajax() {
+
+            var v_ajax = new XMLHttpRequest();
+            v_ajax.open("get", "dummy.txt", true); // 특별한 경우가 아니면 항상 비동기로!! 디버깅할 때 false
+            v_ajax.onreadystatechange = function () {
+                if (v_ajax.readyState == 4 && v_ajax.status == 200) {
+                    v_disp.innerHTML += "<h1>" + v_ajax.responseText + "</h1>";
+                    v_myRoze = v_ajax.responseText;
+                    alert("메롱");
+                }
+            }
+            v_ajax.send();
+
+            alert(v_myRoze); // 먼저 실행됨. ->  undefind 뜸.. 
+        }
+
+    </script>
+</body>
+
+</html>

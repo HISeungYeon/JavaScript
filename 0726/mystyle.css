@@ -1,0 +1,36 @@
+    /*보통 전체를 감싸는 div를 wrapper container라는 id나 class를 주는 것이 관례
+    외부 style*/
+
+    *{
+        margin:0px;
+        padding:0px;
+    }
+    
+    div {
+        border: 3px solid pink;
+    }
+    #wrapper {
+        width: 95vw; /*원래 100% 였는데 자식들때매 안바뀌어서 강제로 바꾸어주는 것*/
+        height: 95vh; /* (원래 100%였음)자식들에게 크기가 있어서 이게 안먹음. 그래서 새로운 단위를 붙여줘야해*/
+        border: 5px solid red; /*눈으로 함 볼까?*/
+    }
+    #header { 
+        height: 25%;
+    }
+    #middle {
+        height: 50%;
+    }
+    #footer{
+        height: 25%;
+    }
+    #side,#content{
+        display: inline-block;
+    }
+    #side {
+        width: 40%;
+        height: 100%;
+    }
+    #content {
+        width: 55%;
+        height: 100%;
+    }

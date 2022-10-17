@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./myQuery.js"></script>
+</head>
+
+<body>
+    <input type="text" name="안메롱" id="아이디 " value="메롱메롱메ㅗㄹㅇ">
+    <input type="text" name="안메롱1" id="아이디1 " value="메롱메롱메ㅗㄹㅇ 더1">
+    <input type="text" name="안메롱2" id="아이디2 " value="메롱메롱메ㅗㄹㅇ 더2">
+    <div id="dv1" class="blackpink">문상훈</div>
+    <div id="dv2" class="blackpink">오당기</div>
+    <div id="dv3" class="blackpink">미노이</div>
+    <div id="dv4" class="blackpink">요리조리</div>
+    <script>
+        console.log($(".blackpink").html().substring(2));
+
+
+        /*
+        $(".blackpink").attr("class", "bangtan")
+                        .html(function(p_inx, p_str){
+                            if(p_inx == 1) return "뷔와 제니"
+                            return p_str; //원래 문자열
+                        })
+                        .html(function(){
+                            if(p_inx == 0) return p_str + " 만만세"
+                            return p_str;
+                        })
+                        .attr("class", function(p_inx, p_attr){
+                            if(p_inx == 3) return "merong";
+                            return p_attr;
+                        });
+                        */
+
+        // alert($("input[name=안메롱]").attr("type"));
+        // $("input").attr("value", "음하하하");
+        //콜백 지옥에 빠진 거 같다,,
+
+        /*
+        $("input").attr("type", function(p_index, p_attr){
+            console.log("인덱스 : 속성값", p_index, p_attr); // 자주눈으로 확인
+            if(p_index == 1){
+                return "checkbox";
+            }
+            return p_attr; //this[p_attr];
+        });
+        */
+
+        /*
+        //특별한 for문 => for in
+        var v_samObj = {
+            "mem1":"문상훈",
+            "mem2":"미노이",
+            "mem3":"하이큐",
+            "mem4":"푸풉"
+        }
+
+        for(var v_attr in v_samObj) {
+            alert(v_attr + " : " + v_samObj[v_attr]);
+        }
+        */
+
+        /*
+        // $("input").attr("type","radio");
+        // $("input").attr("value", "방탄");
+        $("input").attr({ 
+            "type":"radio",
+            "value":"방탄"
+        });
+        */
+
+        /*
+        $("input").attr ({
+            "type":"radio",
+            "value":"방탄"
+        }).html("").attr().html
+        */
+
+
+    </script>
+
+</body>
+
+</html>

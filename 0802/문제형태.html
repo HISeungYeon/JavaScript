@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //document.write 넘 길어 ㅠ
+        function myprint(p_arg){
+            document.write(p_arg);
+        }
+
+        function prtRadio(p_munNum){
+            for (var i = 1; i <= v_sunda; i++) {
+               myprint(i + "<input type=radio name=nm_mun" + p_munNum + " value=" + i + ">");
+            }
+        }
+
+        var v_munjeSu = 5;
+        var v_sunda = 4;
+        //랜덤 답 생성
+        var v_dap = [];
+        for(var i = 1; i <= v_munjeSu; i++){
+            v_dap.push(Math.ceil(Math.random()*v_sunda));
+        }
+
+        alert("눈으로 괜히 생성값 확인" +v_dap);
+
+        for (var i = 1; i <= v_munjeSu; i++) {
+            myprint("<h4> 문제" + i + "</h4><hr>");
+            prtRadio(i); // 이중 for문이 부담스럽다면 밖으로 빼서 함수로 만들쟈
+        }
+
+        document.write("<br><input type=button value=채점><br>");
+        document.write("맞은 개수: <input type=text value=''><br>");
+        document.write("점수: <input type=text value=''>");
+
+    </script>
+
+</body>
+
+</html>

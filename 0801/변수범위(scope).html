@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //전역변수 -> 페이지 전체 어디서든 접근할 수 있는 변수
+        // function 안에서 선언되었는가? 밖에서 선언되었는가?
+
+        /*
+        var v_myName = "김태훈"; // 전역변수
+        function f_merong() {
+            
+            var v_merong2 = "김태훈2"; // 지역변수
+            alert(v_myName); // undifined
+            alert(v_merong2); // O
+
+            var v_myName="김태훈222"; // 전역변수와 이름은 같지만 얘는 지역변수라 다른 변수이다..?
+            alert(v_myName);
+            
+
+            
+            for(var i=10; i<111; i++){
+                console.log("귀요미 태훈님 얼마,,,,,,,,,")
+            }
+            alert(i); // function 안에서 계속 살아있음
+            
+        }
+        f_merong();
+        // alert(v_merong2); // X
+        */
+
+//---------------------------------------------------------------------------------------------
+
+        //간략 계산기 함수 (4칙 연산 각각 함수를 리턴) 리턴으로 되돌려받으면,, 함수 밖으로 뺄 수 있음..
+       
+        alert(f_cal("+")(111, 222));
+        alert(f_cal("-")(333, 222));
+        alert(f_cal("*")(1, 222));
+        alert(f_cal("/")(111, 11));
+        
+
+        //222 + 333 - 111 = ?
+        alert(f_cal("-")(f_cal("+")(222,333),111)); // 앞에 연산 후 그 연산을 뒤 연산 함수에 넣기.
+        // 가독성이 떨어지니 밑과 같이 하는 것이 좋음.
+        var v_plusResult = f_cal("+")(222,333);
+        alert(f_cal("-")(v_plusResult,111));
+
+        
+        function f_cal(p_operator) {
+            if (p_operator == "+") {
+                return function (p_a, p_b) { // 함수 안에 함수...ㅎ
+                    return p_a + p_b;
+                }
+            }
+            if (p_operator == "-") {
+                return function (p_a, p_b) {
+                    return p_a - p_b;
+                }
+            }
+            if (p_operator == "*") {
+                return function (p_a, p_b) {
+                    return p_a * p_b;
+                }
+            }
+            if (p_operator == "/") {
+                return function (p_a, p_b) {
+                    return p_a / p_b;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

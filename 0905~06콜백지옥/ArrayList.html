@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    var v_obj = {};
+    v_obj.aaa = "aaa"; // 속성/메소드 추가할 땐 원하는 이름 맘대로!(키워드만 아니면)
+    v_obj.bbb = "bbb";
+
+    delete v_obj.aaa; //속성/메소드 지우기!
+    console.log(v_obj); // 항상 눈으로 확인
+
+    //java의 ArrayList는 js의 배열에 해당
+    //생성자
+    var java = {};
+    java.util ={}; 
+    function ArrayList() {
+        this.length = 0; //생성될 때 개수 0
+        return this; //function키워드가 calss로 사용되고 있다느 의미 !!(100%는 아님,,하)
+    }
+
+    //메소드 추가, prototype은 그저 메모리 절약을 위한 것으로, 넘 신경 안써도 됨.
+    ArrayList.prototype.add = function (p_arg) {
+        this[this.length] = p_arg;
+        this.length++;
+        return this; //메소드 chainning을 위함.
+        return; //메소드는 일반 함수라서 기본적으로 return이 생략되어있음
+    }
+    ArrayList.prototype.get = function (p_inx) {
+        return this[p_inx];
+    }
+    ArrayList.prototype.remove = function (p_inx) {
+        //2가 빠진 인덱스번호가 나오는데, 순서대로 잘 나오도록 작성해보쟈
+        for (var i = p_inx; i < this.length-1; i++) {
+            this[i] = this[i+1];
+        }
+        delete this[this.length-1];
+
+        // 객체 속성 지울 때 사용했던 키워드....
+        // delete this[p_inx];
+        // this.length--; // length 값도 변경
+
+
+    }
+
+    // 실제 사용
+    var j_arrList = new ArrayList();
+    j_arrList.add("하용").add("승훈").add("연수").add("승연").add("배신").add("민정").add("준혁").remove(6);
+    console.log("mmorpg", j_arrList);
+
+    /*
+    j_arrList.add("승훈");
+    j_arrList.add("연수").remove(1);
+    j_arrList.add("승연");
+    j_arrList.add("배신");
+    j_arrList.add("민정");
+    */
+
+    console.log("check1: ", j_arrList.get(1)); //눈으로 확인!! 
+    j_arrList.remove(1);
+    j_arrList.remove(4);
+    console.log("check2: ", j_arrList); // 눈으로 확인
+
+</script>

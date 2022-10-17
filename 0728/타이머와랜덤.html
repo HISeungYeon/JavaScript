@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script src="./js/mylib.js"></script> <!--필요한 것 모아두고 그때 그때 쓸 수 있음. ㅋㅋ-->
+</head>
+
+<body>
+    <div id="id_disp"></div>
+    <script>
+        
+        /*
+        // 타이머와 랜덤 
+        // 스크립트 타이머는 정확하지 않기로 유명..ㅋㅋ 대략 맞음.
+        // setTimeout(함수포인터, 시간(밀리초), 매개변수1, 매개변수2...)
+
+        function f_after(p_arg1, p_arg2){
+            alert("나 얼마만에 왔어 푸힛 " + p_arg1 + " : " + p_arg2);
+        }
+
+        setTimeout (f_after, 2000, "효정", "오늘 기운없아?"); 
+        //setTimeout자체가 2초뒤에 함수를 호출해줄게!! 라는 뜻이야 그러니까 그냥 함수호출 말고 이름만 불러줘
+        // 2초뒤에 f_after를 부름 - 비동기 함수. 뒤 코드한테 먼저 실행하도록 순서를 줌.
+        // 함수에 ()를 붙이는 순간 '=> f_after()' 함수 자체를 호출한거여서 그냥 떠버림.
+
+        // 보통 순차적으로 코드가 진행되서 앞에 코드가 끝나야 뒤 코드가 실행 됨. Synchronouse.
+        // 앞 코드가 실행중인데 뒤 코드가 실행되는 것은 ASynchronouse.
+        // 동기 vs 비동기
+        alert("누가먼저실행될까");
+        
+        f_after(12,15); // 승연아 !!!!
+        f_after; // 승연이
+        */
+
+
+        var v_ranNumber = Math.random(); // 0 <= ? < 1  보통 0.xxx 이렇게 나옴..
+
+        /*
+        for (var i = 1; i<=100; i++){
+            var v_ranNumber = Math.random(); 
+            id_disp.innerHTML += "<h4>" + v_ranNumber + "</h4>";
+        }
+        */
+
+        /*
+        //만약 1~10까지 숫자를 발생시켜야 한다면
+        for (var i = 1; i<=100; i++){
+            var v_ranNumber = Math.ceil(Math.random()*10);  //ceil : 올림
+            id_disp.innerHTML += "<h4>" + v_ranNumber + "</h4>";
+        }
+        
+        for (var i = 1; i<=100; i++){
+            var v_ranNumber = Math.floor(Math.random()*11); // floor : 내림
+            id_disp.innerHTML += "<h4>" + v_ranNumber + "</h4>";
+        }
+        */
+
+        /*
+        //여기서 문제 65 ~ 100까지 발생시켜 보쟈 /힌트 : 65~100은 65 + (0~35)라고 생각할 수 이따.
+        for (var i = 1; i<=100; i++){
+            var v_ranNumber = Math.floor(Math.random() * 36 + 65); 
+            id_disp.innerHTML += "<h4>" + v_ranNumber + "</h4>";
+        }
+        */
+
+        /*
+        for (var i = 1; i <= 100; i++) {
+            // var v_ranNumber = Math.floor(Math.random() * 36 + 65); // floor : 올림. 
+            id_disp.innerHTML += "<h4>" + f_ranNum(100, 200) + "</h4>";
+        }
+        // 좋은 개발자는 초복/말복만 있고 중복은 없다..^^-
+        // from ? to? 랜덤 정수를 발생시키는 함수
+        function f_ranNum(p_start, p_end) {
+            return Math.floor(Math.random() * (p_end - p_start + 1)) + p_start;
+        }
+        */
+
+    </script>
+
+</body>
+
+</html>

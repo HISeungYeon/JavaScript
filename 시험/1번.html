@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 시간을 매개변수로 받아서 올라간 거리를 리턴하는 함수
+        function f_retDistance(p_sec) {
+            var distance = 0;
+            for (var i = 1; i <= p_sec; i++) {
+                if (i % 2) {
+                    distance += 3;
+                } else {
+                    distance -= 2;
+                }
+            }
+            return distance + "cm를 올라갔습니다."
+        }
+
+        // 거리를 매개변수로 받아서, 그 만큼 올라가는데 걸리는 시간을 리턴하는 함수
+        function f_retSeconds(p_dist) {
+            //1cm 올라가는데 2초 걸린다...
+            var p_sec = 1;
+            for (;"언제 같아질지 모른당ㅇ..";) {
+                if(p_dist == f_retDistance(p_sec)){
+                    return p_sec;
+                }
+                p_sec++;
+            }
+
+            return p_sec + "초가 걸립니다."
+        }
+
+        alert(f_retDistance(2)); //3초 동안 올라간 거리
+        alert(f_retSeconds(4)); // 5cm 올라 가는데 걸리는 초
+    </script>
+
+</body>
+
+</html>

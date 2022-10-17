@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    //배열 sort(정렬)
+    // alert(paresInt("민정")); 
+    // alert(Number("민정")) //number는 원시타입, Number는 Wrapper class
+
+    /* 숫자연산 빼기는 문자열을 숫자로 변환할 수 없어서 안되지만 비교연산자는 문자열을 내부적으로 
+    unicode값으로 바꿔서 비교하기 때문에 작동함
+
+    if("승연" >= "다영"){ //유니코드로 비교 가능
+        alert("이건 뜨겠찌?")
+    }
+    */
+
+    var v_testArr = ["민정", "승연", "선주", "다영", "지현"];
+    // v_testArr.sort(); // callback없이 사용, 자동으로 올림차순으로 정렬
+
+    /*
+    v_testArr.sort(function(a,b){ //callback사용
+        console.log("a,b",a,b); //a와 b가 무슨 값인지 눈으로 확인.
+        return b-a; //내림차순으로,,,, 문자열은 -가 존재하지 아너,,,,
+    });
+    */
+
+    v_testArr.sort(function(a,b){ //callback사용
+        if(a >= b){
+            return 1; //양수
+        }
+        return -1; // 음수
+    });
+
+    console.log("kgb: ", v_testArr);
+</script>

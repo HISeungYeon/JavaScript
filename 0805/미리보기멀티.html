@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #id_disp {
+            border: 1px solid pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="id_disp"></div>
+    <!--파일 선택 창-->
+    <input type="file" id="id_file" value="" accept="jpg,.png,.jpeg,.gif">
+    <script>
+        /* 플리커(사진 전문) 사이트
+        flicker public api
+        https://www.flickr.com/services/feeds/photos_public.gne?tags=cat&format=json
+        */
+        var v_fileBtn = document.querySelector("#id_file");
+        var v_disp = document.querySelector("#id_disp");
+        v_fileBtn.onchange = function () {
+            for (var i = 0; i < v_fileBtn.files.length; i++) {
+                console.log(v_fileBtn.files.length, "개 선택하셨습니다.");
+                console.log(v_fileBtn.files[0].name); //낯선 속성 files
+                var v_file = v_fileBtn.files[0]; // 현재는 file 1개만 선택했으니까
+                var v_fileReader = new FileReader(); // 파일 읽어주는 아저씨
+
+                //비동기, 기본적으로 함수로 분리(Isolation)를 해주어야 함.
+                v_fileReader.onload = function(){
+                // v_fileReader.readAsText(); //텍스트 읽기 잘 사용하진 않음.
+                v_fileReader.onload = function () { // 다 읽었을 때 할일 지정
+                    console.log(v_fileReader.result)
+                    // 읽은 내용을 result라는 속성에 가지고 있음.
+                    var v_img = document.createElement("img"); // img 태그 생성
+                    v_img.src = v_fileReader.result;
+                    v_img.width = 200;
+                    v_img.setAttribute("height", "200");
+                    v_disp.innerHTML = ""; // 추가전에 비워버림
+                }
+                    v_disp.appendChild(v_img); //이걸 안하면 눈에 안띔.
+                }
+                v_fileReader.readAsDataURL(v_file); // 요거 잔상만 남기기..
+                // alert("한번에 잘 선택혀라")
+            }
+        }
+    </script>
+</body>
+
+</html>

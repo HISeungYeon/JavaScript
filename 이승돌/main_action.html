@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script src="./fanpage.js"></script>
+<script>
+
+    var v_nickName = request.getParameter("nm_nickName");
+    var v_cheerComment = request.getParameter("nm_cheerComment");
+
+    //localStorage에 저장하기
+    var v_tblName = "fanTB";
+    var v_arrTotal = [];
+
+    if (localStorage.getItem(v_tblName) != null) {
+        v_arrTotal = JSON.parse(localStorage.getItem(v_tblName));
+    }
+
+    var v_gul = {};
+    v_gul.nickName = v_nickName;
+    v_gul.cheerComment = v_cheerComment;
+    v_arrTotal.push(v_gul);
+
+    // 배열을 localStorage에 저장
+    localStorage.setItem(v_tblName, JSON.stringify(v_arrTotal));
+
+    location.replace("main.html");
+
+</script>

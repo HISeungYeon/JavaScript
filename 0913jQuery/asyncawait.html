@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<body>
+    <div id="disp"></div>
+</body>
+<script>
+    //Promise가 나왔지만, 여전히 비동기처리 단계가 많아지면 어쩔 수 없이 코드가 복잡해지고 가독성이
+    // 떨어지는 문제는 여전히 남아있어 불만이 있었는데, async, await(짱짱)이 나와서 엄청 칭찬 받음.
+    //조금 시간이 걸리니까, 외면하지 말고,,,, 써보기 !! 
+
+    const axios = {}; //네임스페이스용 (엑시오스라 함)
+    axios.get = function (p_url) {
+        return new Promise((res, rej) => {
+            let ajax = new XMLHttpRequest();
+            ajax.open("get", p_url, true);
+            ajax.onreadystatechange = () => {
+                if (ajax.readyState == 4 && ajax.status == 200) {
+                    //성공했을 때는 res/resolve
+                    res(ajax.responseText);
+                }
+            }
+            ajax.send();
+
+            // resolve("Good!!"); -> 그냥 실행
+            // reject("약속 파토남"); -> catch실행
+        });
+    }
+
+    //async와 await는 세트로 ! 
+    async function f_good(){
+        let response = await axios.get("jQuery정리1.html")
+        document.querySelector("#disp").innerHTML = response;
+    }
+    f_good();
+
+    axios.get("jQuery정리1.html").then((p_relt) => { console.log("성공요", p_relt) })
+        .catch((p_error) => { console.log("실패:", p_error) })
+        .finally(() => { console.log("얜 무조건임") })
+
+    alert("휴...........")
+</script>

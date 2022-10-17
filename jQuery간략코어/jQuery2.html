@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div data-num="n1" >맨날 div1</div>
+    <div data-num="n2">맨날 div2</div>
+    <div data-num="n3">맨널 div3</div>
+    <div data-num="n4">맨날 div4</div>
+    <input type="text" name="n_txt" value="aaa">
+    <input type="text" name="n_txt" value="roze">
+    <input type="text" name="n_txt" value="aaa">
+    <input type="text" name="n_txt" value="roze">
+
+    <script>
+
+        //div 태그 중에서 속성 data-num값이 n홀수 인 것만 ,,,, 테두리 border를 맘대로 만들어!
+        $("div").attr("data-num", function(p_index, p_value){
+            var v_lastNum = p_value.substring( p_value.length-1);
+            if(v_lastNum % 2){ // 0이면 false고 1이면 true,,
+                $(this).css("border", "3px solid blue").css("border-radius", "50%");
+            }
+            
+        })
+
+
+        //div태그 innerHTML에 문자열 "맨날"이 있는 것만 글자색 노랑, 배경색 까망, font-size 4배로 바꿔랏
+        $("div").html(function (p_inx, p_html) {
+            if (p_html.indexOf("맨날") != -1) {
+                $(this).css("font-size", "4em")
+                    .css("background-color", "black")
+                    .css("color", "yellow");
+            }
+            return p_html;
+        })
+
+        /*
+        //input태그중에 value값이 roze인 것만 속성 type을 radio로 바꾸쟈
+        $("input").val(function (p_inx, p_val) {
+            if (p_val == "roze") {
+                console.log($(this)) //이거 꼭 기억! 일반 dom객체를 $()로 둘러싸면 jQuery객체가 됨.
+                $(this).attr("type", "radio");
+                // this.type = "radio"; //$().attr("type", "radio"); -> 이렇게 쓰고 싶어 !
+            }
+            return p_val;
+        });
+        */
+
+        /*
+        //name="n_txt" 텍스트박스에 맨날 div2 가 들어가도록 작성하기
+        // $("input").val("맨날 div2"); -> 하드코딩 ㅋㅅㅋ
+        $("input").val($("div").eq(1).html());
+
+        //여기서 html메소드 문제 하,,
+        $("div").html(function(p_inx, p_str){
+            console.log(p_inx, p_str); // 무슨값인지 확인하기
+            if(p_inx == 0 || p_inx ==3){
+                return "하이루 로제"
+            }
+            return "ㅎㅇ";
+        })
+        */
+    </script>
+</body>
+
+</html>

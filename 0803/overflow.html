@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    #id_parent {
+        position: relative;
+        left: 250px;
+        top: 200px;
+        width: 200px;
+        height: 200px;
+        background-color: aquamarine;
+        border: 50px groove blue;
+        /* overflow: hidden; */
+        /* overflow, hidden  넘치는 걸 잘라라 */
+    }
+
+    .child {
+        position: absolute;
+        width: 820px;
+        height: 200px;
+        border: 5px solid blue;
+        /* background-image: url("../images/문상훈.jpg");
+        background-size: 200px 200px; */
+    }
+    img{
+        width: 200px;
+        height: 200px;
+    }
+</style>
+
+<body>
+    <h1>이거슨 전자앨범이다</h1>
+    <div id="id_parent">
+        <div id="id_child1" class="child">
+            <img src="../images/짱구4.jpg">
+            <img src="../images/문상훈.jpg">
+            <img src="../images/문상훈2.jpg">
+            <img src="../images/문상훈3.jpg">
+        </div>
+        <div id="id_child2" class="child">
+            <img src="../images/문상훈4.jpg">
+            <img src="../images/문상훈5.jpg">
+            <img src="../images/짱구1.png">
+            <img src="../images/짱구2.jpg">
+        </div>
+    </div>
+<script>
+    var v_child1 = document.querySelector('#id_child1');
+    var v_child2 = document.querySelector('#id_child2');
+
+    var v_mvWidth = 10;
+    function f_move(){
+        v_child1.style.left = parseInt( v_child1.style.left) -  v_mvWidth + 'px';
+        v_child2.style.left = parseInt( v_child2.style.left) -  v_mvWidth + 'px';
+
+        if(parseInt( v_child2.style.left) == 0)  v_child1.style.left = "820px";
+        if(parseInt( v_child1.style.left) == 0)  v_child2.style.left = "820px";
+
+        setTimeout(f_move, 200);
+    }
+
+    
+
+    //페이지 로딩이 끝나면 자동으로 발생하는 이벤트
+    window.onload = function(){ //스크립트로 css초기화하는 것도 잊지맙시당
+        
+        if(!v_child1.style.left){
+            v_child1.style.left = "0px";
+            v_child2.style.left = "820px";
+        }
+        f_move();
+
+    }
+</script>
+</body>
+
+</html>

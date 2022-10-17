@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    var v_datas = [
+        {
+            "name": "승훈",
+            "birth": "2021-01-01",
+            "skills": "javascript"
+        },
+        {
+            "name": "하용",
+            "birth": "2020-08-08",
+            "skills": "angular"
+        },
+        {
+            "name": "연수",
+            "birth": "1960-11-11",
+            "skills": "oracle"
+        },
+        {
+            "name": "재경",
+            "birth": "1999-12-25",
+            "skills": "viewjs"
+        },
+        {
+            "name": "종환",
+            "birth": "2012-07-07",
+            "skills": "all"
+        }
+    ]
+
+    //name으로 정렬해서 출력
+    // console.log(v_datas[i].name);
+    v_datas.sort(function (a, b) {
+        // console.log(a.name, b.name);
+        if (a.name >= b.name) {
+            return 1; //양수
+        }
+        return -1; // 음수
+    })
+    console.log(v_datas);
+
+
+
+    //birth으로 정렬해서 출력
+    
+    v_datas.sort(function (a, b) {
+        if (a.birth >= b.birth) {
+            return 1;
+        }
+        return -1;
+    });
+    
+    // v_datas.sort(function (a, b) {
+    //     console.log("a,b => ", a.birth, b.birth);
+    //     return a.birth.replaceAll("-","") - b.birth.replaceAll("-","")
+    // });
+    console.log(v_datas);
+
+
+
+    //skills로 정렬해서 출력
+    v_datas.sort(function (a, b) {
+        if (a.skills >= b.skills) {
+            return 1;
+        }
+        return -1;
+    });
+    console.log(v_datas);
+</script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <!-- 실제 jQuery설치는 아래 1줄로 끝, 가끔 면접에서 cdn이 뭐냐고 물으봄,, 
+        Content Delivery Network -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="./jquery.min.js"></script>  -->
+    <!-- 둘 중 하나 쓰면 됨. 근데 위 코드는 구글 서버에서 직접보내주는 것. 밑은 내 서버에서. 
+        cnd으로 제공된다면 cdn방식을 사용하는 것이 대빵 유리!! 그니까 구글 서버에서 보내쟈 ~ -->
+    <script>
+        $(function(){ //문서 로딩이 끝나면 이벤트 발생
+            // alert("제발 집보내조");
+            /*
+            $("div").html("하이루"); // innerHTML 
+            $("div").css("color", "red"); // style객체를 다룸 -> 아주 안좋은 방식
+            */
+           /*
+            // 조금 좋은 방식 메소드 체이닝 활용 
+            $("div").html("하이루").css("color", "red");
+            */
+
+            // 가장 좋은 방식 -> 변수로 받아둠
+            var $divs = $("div"); //jquery 표시하기 위해 $붙이기
+            $divs.html("하이루").css("color", "red");
+
+        });
+        window.onload = function(){
+            // alert("집보내조");
+        }
+    </script>
+</head>
+
+<body>
+
+    <div>맨날 div1</div>
+    <div>맨날 div2</div>
+    <div>맨날 div3</div>
+    <div>맨날 div4</div>
+    <!-- 이미지나 동영상은 비동기로 로딩됨. -->
+    <video src="../../videos/movie2.mp4"></video>
+
+<script>
+    //오늘은 jQuery 기본 메소드만,, 정리 (꼭 외울 것 !! ㅠㅅㅠ)
+
+    /*
+    $(document).ready(function() {
+        alert("문서로딩 끝나따!");
+    }); 
+    */
+    //위와 밑에 같은 방식!! 
+    $(function(){ //window.onload와 비슷하지만 실제로 DomContentLoaded이벤트 사용
+        alert("문서로딩 끝나따22");
+    });
+
+    /* ??
+   window.onload = function() {
+    alert("누가 빠른가");
+   }
+   */
+</script>
+
+</body>
+
+</html>

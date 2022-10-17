@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    function f_this(){
+        console.log(this); 
+    }
+    f_this(); // == window.f_this();
+    var v_hjh = {"name" : "허지현", "point" : "신반장"} //객체 생성
+    v_hjh.merong = f_this; //merong은 f_this를 참조. 즉 같은 곳을 가리키는 값. merong을 부르면 f_this
+    v_hjh.merong(); //this?
+
+    var v_roze = {"name" : "로제,,"};
+    f_this.call(v_roze); // this -> v_roze 꼭 기억하자
+    //call,apply,bind를 쓰면 this값을 쫓아다니지 않고 원하는 값으로 강제 세팅할 수 있어서 편함
+
+    
+
+</script>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>유튜브 넣기</h1>
+    <input type="button" value="다음 영상" onclick="f_next()"><br>
+    선택하시오<br>
+    상훈1<input type="radio" name="nm_sh" value="" onclick="f_sel(0)">
+    상훈2<input type="radio" name="nm_sh" value="" onclick="f_sel(1)">
+    상훈3<input type="radio" name="nm_sh" value="" onclick="f_sel(2)">
+    상훈4<input type="radio" name="nm_sh" value="" onclick="f_sel(3)">
+    상훈5<input type="radio" name="nm_sh" value="" onclick="f_sel(4)">
+    <!--name의 역할은 그룹지어주는 것! 따로 하면 한번에 다 체크 가능-->
+    
+    <!--button은 click, select는 change-->
+    <select id="id_sel" onchange="f_sel2(value)"> 
+        <option value="-1" selected>영상을 선택하세요오오오오오오</option>
+        <option value="0">상훈1</option>
+        <option value="1">상훈2</option>
+        <option value="2">상훈3</option>
+        <option value="3">상훈4</option>
+        <option value="4">상훈5</option>
+    </select>
+
+<script>
+
+    function f_sel2(){
+        if(v_select.value == -1){
+            alert("삐 -- 다시 선택하세요!!!")
+            return; //함수종료
+        }
+        // alert(v_select.value); //? multiple이 아닌 경우는 아주 간단
+        v_iframe.src=v_preUrl + v_mvList[v_select.value] + v_postUrl;
+    }
+    
+    function f_sel(p_index) {
+        v_iframe.src=v_preUrl + v_mvList[p_index] + v_postUrl; 
+    }
+    
+    var v_mvList = ["yD6dcvcxob8", "TVD9d36HGEc", "WNEkwK8ynfA", "hsvFHt-HUE0", "sgbhZTxqvxo"];
+    // var v_iframe = document.querySelector("#geniousDayoung"); // 아이디 값이 밑에 있어 아직 안만들어져있어서 null임 !
+    var v_preUrl = "https://www.youtube.com/embed/";
+    var v_postUrl = "?autoplay=1&mute=1";
+    var v_index = 0;
+    function f_next() {
+        //iframe의 src 속성에 직접 값 주기
+        v_iframe.src=v_preUrl + v_mvList[++v_index] + v_postUrl;
+        if(v_index == (v_mvList.length-1)){
+            v_index = -1;
+        }
+        }
+       
+    var v_iframe; // 전역변수로 설정
+    var v_select;
+
+    //페이지 로딩 후 초기화가 필요하다면 window.onload에
+    window.onload = function() { // 페이지 로딩이 끝나면 자동실행.
+        // 함수 안에서 전역변수 앞에 변수타입을 붙이면 지역변수가 되어 버림!!
+        v_iframe = document.querySelector("#geniousDayoung"); 
+        v_select = document.querySelector("#id_sel"); 
+
+    }
+</script>
+    <!-- <h2>구글의 정책이 동영상의 사운드는 사용자에게 불편을 줄 수 있다해서 
+        영상 자동플레이를 하려면 사운드를 꺼야 한다. 사운드 켜는 건 사용자 선택 !!
+    </h2> -->
+    <iframe id ="geniousDayoung" width="445" height="791" 
+    src="https://www.youtube.com/embed/yD6dcvcxob8?autoplay=1&mute=1" 
+    title="이따위 꼬라지로 언제까지 살거냐고" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+    </iframe>
+</body>
+</html>

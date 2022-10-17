@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<form action="" enctype="application/x-www-form-urlencoded"></form>
+<script>
+    /* 네임스페이스 그저 규모가 커지면 자꾸 나누어지게 됨. (나누어야 잘 알 수 있음)
+    */
+    // 네임스페이스용 빈 객체 생성 :자바의 package에 해당 
+    // ex) 서울시.삼성동 / 대전시.삼성동 구분하기 위한 역할 $라서 헷갈리는 듯 ? == 'sh={}'
+
+    //ajax 호출 방식을 일반화 시킴
+    var $ = {}; //빈 객체
+    $.ajax = function (p_set) { //빈 객체에 메소드 추가
+        var v_ajax = new XMLHttpRequest();
+        if (p_set.type == "get") {
+            v_ajax.open(p_set.type, p_set.url? + "?" + p_set.data, true);
+        } else {
+            v_ajax.open(p_set.type, p_set.url, true);
+        }
+
+
+
+        v_ajax.onreadystatechange = function () {
+            if (v_ajax.readyState == 4 && v_ajax.status == 200) {
+                if (p_set.dataType == 'json') {
+                    p_set.success(JSON.parse(v_ajax.responseText)) //결과처리
+                } else {
+                    p_set.success(v_ajax.responseText)
+                }
+            }
+        }
+        if(p.set.type == "get") {
+            v_ajax.send();
+        }else{
+            v_ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            v_ajax.send(data); //post방식 일때는 send()안에 data
+        }
+    }
+
+    $.ajax({
+        type: "get",
+        url: "merong.json",
+        data:"",
+        dataType: "text", //돌려받은 값에 json.parse를 적용할지 여부 선택.
+        success: function (p_rslt) {
+            console.log("잘 이해해보쟛", p_rslt);
+        }
+    })
+
+</script>

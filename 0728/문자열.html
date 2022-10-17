@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    //문자열은 중요!
+    // var v_str = "윤동기, 김현석, 김무건, 김효정"
+    // alert(v_str.length); //문자열에 .을 찍는 순간 자동으로 String(Wrapper)객체로 바뀜.
+    // alert(v_str.indexOf("김현석", 10)); //인덱스 10번부터 김현석을 찾어라 !! 못찾으면 -1이 나온다
+    // var v_replace = v_str.replace("김무건", "배트맨"); //김무건을 배트맨으로 바꿔랴! 
+    // alert(v_replace); //replace는 새로운 문자열을 만들어서 리턴해주는 것. 주의!!!
+    // alert(v_str); // 원본은 안바뀌었음. 
+    // v_str =v_str.replace("김무건", "배트맨"); // 원본을 바꾸려면 덮어 씌어주면 됨!
+
+    // var v_split = v_str.split(","); //split은 배열로 return 해줌.
+    // alert(v_split[1]); // ',' 를 기준으로 구분.
+    // alert(v_split);
+
+    // substr() or subString() 둘 중 하나 골라서 쓰세용
+
+    // alert(v_str.substr(1,2)); // 1번부터 2개 뽑아와라
+
+    
+    var v_trim = "         ㅋㅋㄹㅃㅃ          ";
+    alert("앞" + v_trim + "뒤");
+    alert("앞" + v_trim.trim() + "뒤"); //공백 제거
+    
+
+   var v_attention = "주의요망";
+   alert(v_attention[2]); //읽을 때 배열식 접근이 가능
+   v_attention[2] = "빵";  // 이건 안됨. 기본타입(원시타입) 읽을 순 있으나 바꿀 순 없음.
+   alert(v_attention); //
+</script>

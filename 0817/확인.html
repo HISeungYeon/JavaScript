@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!--php-->
+    <form action="hanbun.php" id="id_form1" method="get">
+        <input type="text" name="aaa" value="화룡점정">
+        <div name="kgb" value="fbi">메롱</div>
+        <input type="text" name="zzz" value="야호">
+        <input type="submit" value="전송">
+    </form>
+    <hr>
+    <form action="hanbun.php" method="post">
+        <input type="text" name="bbb" value="윤민석">
+        <input type="text" name="yyy" value="허지현">
+        <input type="submit" value="보내랏">
+    </form>
+
+<script>
+    // alert(document.querySelector("#id_form1").action);
+    // alert(document.querySelector("#id_form1").method);
+    // //조금 옛날식 접근법 -> 지금도 사용 됨. but 있다는 것말 알면 O 
+    // alert(document.forms[0].elements[1].value);
+    // alert(document.forms[1].elements[1].value);
+    // document.forms[0].aaa.value = "액!션!가!면!"
+    // alert(document.forms[0].aaa.value);
+    // alert(document.forms[1].bbb.value);
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div id="disp">
+        <img src="../images/gg.png" class="myMon" width="100" height="100">
+        <img src="../images/문상훈10.jpg" class="youMon" width="100" height="100">
+        <img src="../images/문상훈11.jpg" class="myMon" width="100" height="100">
+        <img src="../images/문상훈12.jpg" class="youMon" width="100" height="100">
+    </div>
+    <input type="button" value="돌리기" id="btn1">
+    <input type="button" value="방아쇠" id="trigger">
+
+    <script>
+        //필수 메소드
+        //append, appendTo 방향만 다르니, 선택해서 1개만 꼭 잘 써야 함. 필수 메소드 !!
+        //filter, trigger, <div></div>, closest, clone
+
+        //document.createElement("img")
+
+        /*
+        $("#trigger").on("click", function(){
+            $("#btn1").trigger("click"); //btn1버튼을 클릭한 것 처럼 !
+        });
+
+        //선택된 것 안에서 또 골라보기 ! filter
+        $("#btn1").click(function(){
+            $("#disp").children().filter(".youMon")
+                        .attr("width", "400")
+                        .attr("height", "300");
+
+
+            // $(".youMon") // 첨부터 이렇게 쓰면 filter를 쓸 수 없다!
+        });
+        */
+
+
+        //변수 처리해야 되는 부분 잘 확인할것!
+        var $disp = $("#disp"); // 반복되면 성능이 떨어지니,, 변수로 받아두기
+        $("#btn1").on("click", function(){
+            var $childs = $disp.children(); // 약간 애매,,(바뀐걸 읽어와야 하기 때문에 ! 함수 안에 변수 선언 및 초기화 해주기)
+            // console.log($childs.length-1);
+            // console.log($childs.eq(3));
+            $disp.append(
+                $childs.eq(0));
+        })
+        
+
+
+        //document.createElement("img")
+        // $("<img>") //위와 동일
+        /*
+        for (var i = 1; i <= 10; i++) {
+            //부모.append(자식)
+                $("#disp").append($("<img>").attr("src", "../images/문상훈"
+                 + i + ".jpg")
+                    .css("width", "100px")
+                    .css("height", "100px"))
+            }
+        */
+        /*
+        for (var i = 1; i <= 4; i++) {
+            //자식.appendTo(부모)
+                $("<img>").attr("src", "../images/문상훈" + i + ".jpg")
+                    .css("width", 100*i + "px")
+                    .css("height",  100*i + "px").appendTo($("#disp"));
+            }
+        */
+
+
+
+    </script>
+</body>
+</html>

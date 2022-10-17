@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    div {
+        border: 2px solid black;
+    }
+    #mom{
+        position:relative;
+        left: 30px; top: 30px;
+    }
+    #na {
+        left: 10px; top: 10px;
+    }
+</style>
+</head>
+<body>
+    <div onclick="f_hal()" id="halmoney" style="width: 300px; height:300px;">
+        할머니
+        <div onclick="f_mom()" id="mom" style="width: 200px; height:200px;">
+            엄마
+            <div onclick="f_na()" id="na" style="width: 100px; height:100px;">
+                나
+            </div>
+        </div>
+    </div>
+<script>
+    //이벤트 버블링이 Default인 것이 짜증남, 모두 마이크로소프트 때문
+    function f_hal(){
+        alert("나 노발대발")
+    }
+    function f_mom(){
+        event.stopPropagation();
+        alert("엄마는 외계인")
+    }
+    function f_na(){
+        event.stopPropagation(); //사생활 지키자, 이벤트 capturing / 자기 이벤트만 호출 아주 중요 !!
+        alert("난 내일 토요일");
+    }
+
+</script>
+    
+</body>
+</html>

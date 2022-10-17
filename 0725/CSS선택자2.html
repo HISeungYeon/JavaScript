@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * { /* '*' : 모든 것이라는 뜻!!*/
+            background-color: coral;
+        }
+
+        /* 'lsy > hhh' : 자식 선택자 '>' */
+        /* 'lsy .hhh' : 스페이스는 자식포함해서 자식의 자식.. 그 자식들을 모두 포함 */
+        #lsy .hhh {
+            /* 'lsy.hhh': id가 lsy이면서 class가 hhh인 것 and 연산 */
+            background-color: cornflowerblue;
+            font-size: 50px;
+            border: 1px solid beige;
+            /* 축약기법 */
+            /* border-style: solid; */
+            /* border-color: beige; */
+        }
+        div,p { /* 여러개 선택은 , */
+            color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <!--들여쓰기 (indentation)가 중요. 안그러면 복잡해짐.
+        부모 자식 관계가 잘 보이도록 !! -->
+    <div id="lsy">
+        <div class="hhh">자식1</div>
+        <div class="hhh">자식2
+            <div class="hhh">후손1</div>
+            <div class="hhh">후손2</div>
+            <div class="hhh">후손3</div>
+        </div>
+        <div class>자식3</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    로<input type="checkbox" name="blink" value="roze">
+    제<input type="checkbox" name="blink" value="jenni">
+    리<input type="checkbox" name="blink" value="risa">
+    다<input type="checkbox" name="blink" value="dayoung" checked> <!-- checked가 property!-->
+    <script>
+        //
+
+        // '속성명=값' 이 아닌 그냥 혼자 기술 되어있는 것은 jQuery에선 property라 부름.  
+        // 원래 attr메소드로 대응하려다 애매하게 대응해서 버그도 생기고, 의미도 애매하다 해서 
+        // 별도prop메소드로 대응하게 됨. 
+        // alert($("input[name=blink").eq(3).attr("checked")); // true? or false?
+        alert($("input[name=blink").eq(3).prop("checked")); // true? or false?
+
+
+        //jQuery기본 메소드 , prod()
+        //html(), eq(), val(), attr(), css(), on("이벤트명, 콜백"), 이벤트명(콜백), empty()
+        // addClass("클래스명"), removeClass("클래스명")
+        //$(function(){}) => DomcontentLoaded 이벤트에 발생 
+        $(document.querySelector("#id")).html //이런식으로 $로 둘러싸면 jquery 메소드를 쓸 수 있음.
+        // 일반 dom객체를 $()로 둘러싸면 jQuery객체로 바꿔서 jQuery메소드를 쓸 수 있음.
+
+        //성능상 주의: 메소드 체이닝을 많이 쓰거나, 객체를 변수로 받아둬야 성능상 손해를 줄일 수 있다
+        //(jQuery 내부에는 for문이 너무 많이 뺑뺑,,,)
+        $divs = $("div");
+
+    </script>
+    
+</body>
+</html>

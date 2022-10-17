@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #id_curtain {
+            width: 400px;
+            border: 30px groove pink;
+            background-color: black;
+            text-align: center;
+        }
+
+        #id_content {
+            color: yellow;
+            display: none;
+            font-size: 2em;
+            width: 400px;
+            /* border: 3px groove white; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="id_curtain">
+        <div id="id_content">
+            공지사항<br><br><hr> 
+        <br>최고의 프로그래머라면 <br> 
+        <br>에러메세지에 웃음이 난다 <br>
+        <br>시행착오가 즐겁다 <br>
+        <br>로그 출력은 습관이다 <br>
+        <br>컴터 NULL 개 짜증 !!!!!!!!!!!!!!!!!!!!!! </div>
+    </div>
+    <script>
+        var v_curtain = document.querySelector("#id_curtain");
+        var v_contents = document.querySelectorAll("#id_content");
+        var v_ex = 10;
+        function f_show() {
+            // 태그 내에 height속성이 정의가 안 되어 있다면 강제 초기값
+            // function 밖에 있으면 더 좋음 (상황에 의존)
+            if (!v_curtain.style.height) {
+                v_curtain.style.height = "5px";
+            }
+            v_curtain.style.height = parseInt(v_curtain.style.height) + v_ex + "px";
+            //재귀호출로 인해 무한 루핑이니, 종료 조건 필요.(여기선 height값!)
+            if (parseInt(v_curtain.style.height) >= 800) {
+                for(var i=0; i<v_contents.length; i++){
+                    v_contents[i].style.display = "block";
+                }
+                return;
+            }
+            setTimeout(f_show, 50);
+        }
+        window.onload = f_show;
+    </script>
+</body>
+
+</html>

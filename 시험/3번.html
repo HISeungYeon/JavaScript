@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        div {
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+        }
+
+        #a {
+            background-color: yellow;
+        }
+
+        #b {
+            background-color: coral;
+        }
+
+        #c {
+            background-color: yellowgreen;
+        }
+
+        
+        /* position */
+        #box1 {
+            position: static;
+            background-color: coral;
+            top: 20px;
+            left: 30px;
+        }
+
+        #box2 {
+            position: relative;
+            background-color: yellow;
+            top: 20px;
+            left: 30px;
+        }
+
+        #box3 {
+            position: absolute;
+            background-color: yellowgreen;
+            top: 500px;
+            right: 100px;
+        }
+
+        #box4 {
+            position: fixed;
+            background-color: cornflowerblue;
+            top: 600px;
+            right: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3> display: 화면에 어떻게 드러나게 할지를 결정하는 속성. 요소 크기를 무엇으로 한 것인가..!</h3>
+    <h5> - none, block, inline, inline-block</h5>
+        <div id=a> 노랑</div>
+        <div id=b> 주황</div>
+        <div id=c> 초록</div> <hr>
+
+    <h3> position: 태그를 어떻게 위치 시킬 것인가 ??</h3>
+    <h5> static: 디폴트 값. top, left, bottom, right가 있어도 무시 됨. </h5>
+    <h5> relative: 원래 위치를 기준으로 상대적으로 배치해준다 !!! top, bottom, left, right 속성을 이용. </h5>
+    <h5> absolute: 상위 요소를 기준으로 배치를 한다.</h5>
+    <h5> fixed: 뷰포트(브라우저 전체화면)가 배치 기준 !! </h5>
+    <!-- <div> -->
+    <div id="box1" >static 박스</div>
+    <div id="box2">relative 박스</div>
+    <div id="box3">absolute 박스</div>
+    <div id="box4">fixed 박스</div> <br><br><br><br><br><br><br><br><br><hr>
+
+    <h3>overflow: 컨텐츠의 값이 너무 커서 요소내에 보여주기 힘들 때 어떻게 보여줄까?</h3>
+    <h5> visible : 기본 값! 넘칠 경우 컨텐츠가 상자 밖으로 보여짐</h5>
+    <h5> hidden : 넘치는 부분은 잘려서 보여지지 않음</h5>
+    <h5> scroll : 스크롤바가 추가되어 스크롤할 수 있음(가로, 세로 모두 추가)</h5> 
+    <h5> auto : 컨텐츠 량에 따라 스크롤바를 추가할지 자동으로 결정</h5> 
+    <hr>
+
+    <h3>z-index: 위치지정요소. 더 큰 z-index값을 가진 요소가 작은 값의 요소 위를 덮음</h3>
+    <hr>
+
+    <h3>transform: 요서에 회전, 크기조절, 기울이기, 이동 등 효과를 부여함.</h3>
+
+
+</body>
+
+</html>

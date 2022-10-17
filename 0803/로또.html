@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../0728/js/mylib.js"></script>
+</head>
+
+<body>
+    <h1>로또번호만들기, 중복체크로직은 아주 중요</h1>
+    <input type="button" value="번호 생성" onclick="f_lotto()">
+    <div id="id_disp" style="border: 1px solid pink"></div>
+    <script>
+        var v_disp = document.querySelector("#id_disp");
+        //배열객체의 indexOf 메소드는 찾으면 해당 index, 못찾으면 -1 리턴
+
+
+        //개발자는 중복을 싫어해 ~_~ 처음 결과를 얻기 위해 짠 내용을 다시 깔끔하고 매끄럽게 
+        //정리하는 것을 refactoring이라고 함. 실제로 정리하는 중에 코드가 더 깔끔해지고,
+        //성능이 좋아지는 부분이 있어서 refactoring이라고 부름.
+        // function f_repeat(p_arr, p_val) {
+        //     for (var i = 0; i < p_arr.length; i++) {
+        //         if (p_arr[i] == p_val) {
+        //             return true; // == i //같은 게 있음
+        //         }
+        //     }
+        //     return false; // == -1 // 같은게 없음
+        //     //refactoring을 시도했더니 
+        // }
+
+        function f_lotto() {
+            var v_lottoNums = []; //번호 담을 배열
+            for (; "몇번만에 6개가 될지 알 수 없어";) { //무한루프
+                var v_ranNum = f_ranNum(1, 45);
+
+                /*
+                // 중복 체크 발생한 번호가 배열에 이미 있는지(true) 없는지(false)
+                //개별 지교가 아닌 전체 루프 뒤에 넣을지 안 널을지 결정해야 함.
+
+                var v_isExist = false; // 없다고  가정 -> 아주 중요!!!!!!!
+
+                for (var i = 0; i < v_lottoNums.length; i++) {
+                    if (v_lottoNums[i] == v_ranNum) {
+                        v_isExist = true; // 없다고 가정했는데 있음.
+                        break; //더 돌 필요가 없음
+                    }
+                }
+                // 넣을지 않넣을지 이게 결정 O
+                if (!v_isExist) {
+                    v_lottoNums.push(v_ranNum);
+                }
+                */
+
+                /*
+                if(!f_repeat(v_lottoNums, v_ranNum)){
+                
+                    v_lottoNums.push(v_ranNum);
+                }*/
+                //indexOf 메소드를 이용하면?
+                if(v_lottoNums.indexOf(v_ranNum) == -1){
+                    v_lottoNums.push(v_ranNum);
+                }
+
+                
+                //무한루프는 항상 빠져나가 조건을 먼저 생각하고 정의.
+                if (v_lottoNums.length == 6) {
+                    v_disp.innerHTML += "<h1>" + v_lottoNums + "</h1>"; //출력
+                    break;
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

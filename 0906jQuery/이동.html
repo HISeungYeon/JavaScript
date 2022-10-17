@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="disp">
+        <img src="../images/gg.png" width="200" height="200">
+        <img src="../images/문상훈.jpg" width="200" height="200">
+        <img src="../images/문상훈10.jpg" width="200" height="200">
+        <img src="../images/문상훈13.jpg" width="200" height="200">
+
+    </div>
+    <input type="button" value="이동한닷" onclick="f_move()">
+    <script>
+        var v_disp = document.querySelector("#disp");
+        
+        function f_move() {
+            var v_imgs1 = document.querySelectorAll("img")[0]; //첫번째 img태그 선택
+            v_disp.appendChild(v_imgs1);
+            
+        }
+
+    </script>
+    
+</body>
+</html>

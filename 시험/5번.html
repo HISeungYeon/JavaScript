@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #id_map {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-image: url("../images/gg.png");
+            background-size: 300px 300px;
+            border-radius: 50%;
+            border: 1px solid black;
+            overflow: hidden;
+        }
+
+        #id_radar {
+            position: absolute;
+            left: 150px;
+            top: 150px;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(208, 222, 107, 0.429);
+            transform-origin: left top;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="id_map">
+        <div id="id_radar"></div>
+    </div>
+
+    <script>
+        var v_wrapper = document.querySelector("#id_radar");
+        var v_gak = 0;
+        var v_mvGak = 5; // 움직임 각
+        function f_rotate() {
+            v_gak = v_gak + v_mvGak;
+            v_wrapper.style.transform = "rotate(" + v_gak + "deg)";
+            setTimeout(f_rotate, 150);
+        }
+        f_rotate();
+    </script>
+</body>
+
+</html>

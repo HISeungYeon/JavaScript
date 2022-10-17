@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selector</title>
+<style>
+    /*CSS선택자*/
+    /*태그 선택자*/
+    div { /* div 태그 전부 선택 */
+        color: palevioletred;
+        background-color: pink;
+    }
+    /* id 접근자*/
+    #hi {
+        font-size: 50px;
+        color: orange;
+        background-color: black;
+    }
+    /*class 접근자*/
+    div.hello { /*앞에 div를 쓰면 div의 class만 본 스타일 적용됨, . 뒤에 빈 공백없으면 and로 연산*/
+        font-size: 30px;
+        color: beige;
+        background-color: purple;
+    }
+    #merong.aaa{ /*id가 merong이면서 class가 aaa인 것*/
+        font-size: 100px;
+    }
+</style>
+</head>
+<body>
+    <div class="hello">슈가슈가룬</div>
+    <div>피치피치핏치</div>
+    <div>별나라요정코미</div>
+    <p class="hello">난 p태그 </p>
+    <div id="hi">하이큐</div>
+    <div id="merong" class="aaa">귀멸의칼날</div>
+    <div>주술회전</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //sequence(순서 중요!!!!!!!) 한 줄씩 해석됨 순서대로!
+        // 따로만든 스크립트 파일에는 웬만하면 함수나 상수값만 주로 정의.. 아니면 시퀀스 순서때문에 에러남!
+        window.onload = function() {
+            alert(document.querySelector("#btn2").innerHTML);
+        }
+    </script>
+    <button id="btn1">눌럿1</button>
+    <button id="btn2">눌럿2</button>
+
+    <script>
+        btn1.onclick = function () {
+            alert("하이");
+        }
+        //덮어씀.
+        var v_check = 1;
+        btn1.onclick = function () {
+            //보통 자주 불리는(1번) 함수 안에 addEventListener를 사용하면 
+            //원하지 않게 여러번 실행되는 것을 확인할 수 있음. 구분하기!
+            btn2.addEventListener("click", function () {
+                alert("메롱" + v_check);
+            });
+            v_check++;
+        }
+    </script>
+</body>
+
+</html>

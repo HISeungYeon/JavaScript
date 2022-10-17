@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" id=""id_html">
+
+<head>
+    <meta charset="UTF-8">
+    <title>사용자입력태그</title>
+    <style>
+        input{
+            color : yellow;
+            background-color: black;
+            font-size: 100px;
+        }
+        #id_disp {
+            width:600px;
+            /* height:400px; */
+            border:1px solid yellowgreen;
+            color: white;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 버튼 만들기 onclick은 이벤트, f_click은 이벤트 핸들러라고 함.-->
+    <!--type value onclick : 속성(attribute), 각 태그는 element (그냥 한개의 객체라고 생각하면 됨. )-->
+    <p id="id_ppp">
+        <a href="http://never.com">네이버</a><br>
+        <a href="http://daum.com">카카오</a><br>
+    </p>
+    <div id="id_disp" onclick="f_divClick()"> 하하 ~ ㅠㅠ</div>
+    <input type="button" value="소스보기" onclick="f_source()">
+    <input id="id_merong" type="button" value="눌러보라궁 ~!" onclick="f_click()">
+    <script>
+        function f_source() {
+            alert(id_html.innerHTML)
+        }
+        function f_divClick() {
+            alert(document.head.innerHTML);
+            alert(id_ppp.innerHTML); //html안에 있는 내용을 의미함. 왕중요!!!
+            alert(id_disp.innerHTML); 
+            //innerHTML하고 문자열 더하기만 알아도 현업에선 꽤 급하게 땜빵 가능
+            id_disp.innerHTML += "<h1>선생님 너무 빨라요 ㅠㅠ</h1>";
+            // => id_disp.innerHTML = 
+            //                 id_disp.innerHTML + "<h1>선생님 너무 빨라요 ㅠㅠ</h1>";
+        }
+
+        // 스크립트에서 html문서를 가리키는 예약어는 document
+        function f_click(){
+            id_disp.innerHTML += "<h2>선생님 너무 빨라요 ㅠㅠ</h2>";
+            console.log(id_merong.type); // 타입은 버튼, 버튼의 이름, 함수와 연결, 
+            console.log(id_merong.value);
+            console.log(id_merong.onclick);
+            console.log(id_merong.id);
+            id_merong.value = "또 누를거야";
+        }
+
+
+        // function f_click() {
+        //     alert("너 지금 나 눌렀냐 ㅇㅁㅇ");
+        //     console.log(document.head);
+        //     console.log(document.body.innerHTML); // 중요한 속성
+        // }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            position: relative; /* position : 위치선정 */
+            /* static을 만들어진 뒤 이동 ↓*/
+            width: 220px;
+            height: 340px;
+            left: 100px;
+            top: 100px;
+            border: 1px solid red;
+        }
+
+        .panel {
+            position: absolute;
+            /* 원래 absolute는 기본 왼쪽 모서리 기준이었는데, 
+            부모(relative일때)의 왼쪽 모서리 기준으로 움직이게 됨.*/
+            border: 1px solid blue;
+            /*
+            left: 100px;
+            top: 100px;
+            */
+        }
+    </style>
+    <script>
+
+        //또 과제 ?! 자동으로 layer가 넘어가도록........... 힌트 : setTimeout 사용하기 !
+
+        //이걸 맨 위에 놓고 싶다면 위에 그대로 놓아도 되지만 일단 선언해놓고 함수에 넣어놓기.
+        var v_layers;
+        var v_text;
+        // v_text.value = 1 + "/" + v_layers.length;
+
+        //window.onload 이벤트 자동 발생 시점은 html 태그 해석이 다 끝나고 난 후 
+        // 페이지 내의 이미지 로딩까지 끝나면 발생
+        window.onload = function () {
+            alert("로딩과 이미지 작업이 끝났습니다.")
+            v_layers = document.querySelectorAll(".panel");
+            v_text = document.querySelector("#id_text");
+            v_text.value = 1 + "/" + v_layers.length;
+            f_next();
+        }
+
+        var v_lIndex = 0; //초기값
+        function f_initZindex(p_layers) {
+            for (var i = 0; i < p_layers.length; i++) {
+                p_layers[i].style.zIndex = 1;
+            }
+
+        }
+
+        function f_next() {
+            // var v_layers = document.querySelectorAll(".panel");
+            // var v_text = document.querySelector("#id_text");
+            f_initZindex(v_layers);
+            v_lIndex++;
+            if (v_lIndex == v_layers.length) {
+                v_lIndex = 0; //처음으로 되돌리기
+            }
+            v_text.value = (v_lIndex + 1) + "/" + v_layers.length;
+            v_layers[v_lIndex].style.zIndex = 999;
+
+            setTimeout(f_next, 500);
+
+        }
+
+    
+
+
+        function f_prev() {
+            // var v_layers = document.querySelectorAll(".panel");
+            // var v_text = document.querySelector("#id_text");
+            f_initZindex(v_layers);
+            v_lIndex--;
+            if (v_lIndex == -1) {
+                v_lIndex = v_layers.length - 1; // 끝으로 보내기
+            }
+            v_text.value = (v_lIndex + 1) + "/" + v_layers.length;
+            v_layers[v_lIndex].style.zIndex = 999;
+
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" value=" < " onclick="f_prev()">
+    <input type="text" id="id_text" value="" size="5">
+    <input type="button" value=" > " onclick="f_next()">
+    <div class="wrapper">
+        <div class="panel" style="z-index:999">
+            <table border="1">
+                <tr>
+                    <td><a href="http://naver.com"><img src="../images/짱구1.png" width="100" height="100"> </a></td>
+                    <td><img src="../images/짱구2.jpg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src="../images/짱구3.jpg" width="100" height="100"></td>
+                    <td><img src="../images/짱구4.jpg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src="../images/짱구1.png" width="100" height="100"></td>
+                    <td><img src="../images/짱구2.jpg" width="100" height="100"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="panel" style="z-index:888">
+            <table border="1">
+                <tr>
+                    <td><img src="../images/감성구닌.jpg" width="100" height="100"> </td>
+                    <td><img src="../images/문상훈.jpg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src="../images/문상훈2.jpg" width="100" height="100"></td>
+                    <td><img src="../images/문상훈3.jpg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src="../images/문상훈4.jpg" width="100" height="100"></td>
+                    <td><img src="../images/문상훈5.jpg" width="100" height="100"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="panel" style="z-index:888">
+            <table border="1">
+                <tr>
+                    <td><img src="../images/문상훈5.jpg" width="100" height="100"> </td>
+                    <td><img src="../images/문상훈.jpg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src="../images/문상훈2.jpg" width="100" height="100"></td>
+                    <td><img src="../images/문상훈3.jpg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src="../images/감성구닌.jpg" width="100" height="100"></td>
+                    <td><img src="../images/문상훈5.jpg" width="100" height="100"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        /* 시퀀스(순서)상 아래 두어 해결.
+        var v_layers = document.querySelectorAll(".panel");
+        var v_text = document.querySelector("#id_text");
+        v_text.value = 1 + "/" + v_layers.length; 
+        // 아직 안만들어져 있어서 에러가 난다. 그래서 이건 다 만들어진 저 밑에 놔야해
+        */
+    </script>
+</body>
+
+</html>

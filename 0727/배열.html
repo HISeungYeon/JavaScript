@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //배열은 JSON과 함께 자바스크립트에서 가장 많이 사용되는 데이터 타입
+    //자바와 달리 특별한 제약사항(미리 갯수 선언, 데이터 타입 믹스안됨)이 없어서 짱 편함
+
+    /*
+    var v_arr = [1,2,3,4,5,6];
+    var v_arr = []; //빈 배열 선언
+    v_arr[0] = 1;
+    v_arr[1] = 2;
+    v_arr[2] = 3;
+    v_arr[3] = 4;
+    v_arr[5] = 6 ;
+    */
+/*
+    var v_arr2 = [];
+    v_arr2[0] = "메롱";
+    v_arr2[4] = "메롱ㅓㅇ나ㅣ럼ㄴ이ㅏ;런이;ㅏ ㅓ";
+    alert(v_arr2);
+    alert(v_arr2.length); //배열에는 현재 크기를 알려주는 length 속성이 있
+*/
+
+    
+    var v_arr = [];
+    /*
+    for(var i=1; i<7; i++) {
+        v_arr[v_arr.length] = i;
+    }
+    */
+
+    //멋진 말로 hoistiong이라고 부름
+    // 스크립트 엔진이 선언부만 위로 올려줌 (살짝 코드 최적화를 해줌)
+    for(var i=10; i>0; i--){
+        push(v_arr,i);
+    }
+    alert(v_arr);
+    
+    //배열 끝에 값을 넣어주는 함수
+    function push (p_arr, p_val){
+        p_arr[p_arr.length] = p_val;
+    }
+
+    /*
+        var v_obj = {
+        names:["박종환", "김강산", "김연수", "이문주", ["이승연", "이준혁", "최승훈", "오재경"]],
+        sides: {
+            friends: ["심성보", "길선주", "허지현", "윤민석"]
+        }
+    }
+
+    alert(v_obj.names[4][2]); //최승훈
+    alert(v_obj.sides.friends[0]); //심성보
+    
+
+    var v_obj = {};
+    v_obj.names = ["박종환", "김강산", "김연수", "이문주", ["이승연", "이준혁", "최승훈", "오재경"]]
+    v_obj.sides = {};
+    v_obj.sides.friends = ["심성보", "길선주", "허지현", "윤민석"]
+
+    console.log(v_obj); // 눈으로 데이터 모습을 자주 봐주면 생각보다 금방 익힌다
+    */
+
+
+</script>
+    
+</body>
+</html>

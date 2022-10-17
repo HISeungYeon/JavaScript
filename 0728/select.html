@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 선택상자 또는 콤보박스라고 불림-->
+    <!-- 모바일에서는 multiple을 쓰는 경우가 있어 관심 가질 것.-->
+    <select id="id_where" multiple size ="" onchange="f_where(this)">
+         <!--모바일에선 mutiple size를 씀-->
+    <!-- <select id="id_where" onchange="f_where(this)"> -->
+        <option value="0"> 어디사세요? </option>
+        <!--deflut값이 없을 땐 처음 화면 이거-->
+        <option value="daejeon"> 대전 </option>
+        <option value="sejong"> 세종 </option>
+        <option value="newyork" selected> 뉴욕 </option>
+        <!--selected라고 쓰면 선택된 선택상자(뉴욕)가 항상 먼저 선택되어있음-->
+        <option value="africa"> 아프리카 </option>
+    </select>
+<script>
+    
+    function f_where(p_this){
+        //p_this는 id_where와 같음.
+        var v_options = p_this.options; //줄여서 쓸 수가 있다
+        for(var i=0; i<v_options.length; i++){
+            console.log(i + " -> " + v_options[i].selected);
+            // selected를 가지고 무엇이 선택되었는지 알 수 있음.
+        }
+
+        // console.log(p_this.options[0]); //자동으로 options 배열이 주어짐.
+        // alert("선택 바꾸셨어요? 피곤하네..")
+    }
+    
+
+
+    // function f_where(p_this){
+    //     alert(p_this.value); // 선택된 value값이 나옴
+    //     alert(id_where.value); // 이것도 마찬가지 값이 같이 나옴.
+    //     /* select는 항상 이런식으로 사용되어서 쉽게 정리해버림. 위의 alert처럼 써도 똑같은 값이 나옴.
+    //        그러나 모바일에선 다시 필요허다....
+    //     var v_options = p_this.options; 
+    //     for(var i=0; i<v_options.length; i++){
+    //         if(v_options[i].selected){
+    //             alert("당신은 " + v_options[i].value + "에 사네요");
+    //             return;
+    //         }
+    //     }
+    //     */
+    // }
+
+
+    function f_where(p_this){
+        //그러나 모바일에선 다시 필요허다....
+        var v_options = p_this.options; 
+        var v_myselect = []; //빈 배열
+        for(var i=0; i<v_options.length; i++){
+            if(v_options[i].selected){
+                v_myselect[v_myselect.length] = v_options[i].value;
+            }
+        }
+        alert("당신은 " + v_myselect + "에 사네요");
+    }
+</script>
+
+</body>
+
+</html>

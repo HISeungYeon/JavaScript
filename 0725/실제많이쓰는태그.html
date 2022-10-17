@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <table border="2"> <!--빨간색 글씨. 되긴 되지만 추천하진 않는 방법! 이란 뜻이래 ~-->
+        <!--또다른 방법은-->
+        <!-- <table style="border:2px; border-style: groove; border-color: blus;"> -->
+            <!-- 근데 이렇게 하면,, 좀 비효율적이야 -->
+        <!-- tr table row, td table data, th table header-->
+        <tr><th>이름</th><th>나이</th><th>하나 더</th></tr>
+        <tr><td>더미</td><td>가짱</td><td rowspan="3"> 난 뭐게</td></tr>
+        <tr><td>문상훈</td><td>36</td></tr>
+        <tr>
+            <td colspan="2"><img src="../images/문상훈.jpg" width="200">
+                <img src="../images/문상훈.jpg" width="200" height="200"><br> 
+            </td>
+        </tr>
+    </table>
+    <!--그림 넣기 '이미지 태그!' -->
+    <!--alt는 alternative(대체글자) 이미지가 지원안되는 브라우져에서 글자로 대체
+    안써도 상관없다 요즘 거의 그림이 다 나오니까!-->
+    <!--Tag 안에 쓴 src alt 같은 값들은 속성(attribute)라고 부름-->
+    <!--width / height : 크기 조절-->
+    <img src="../images/gg.png" alt="감성구닌1"><br>
+    <img src="../images/IP주소를 쓴다면?.jpg" alt="글자로 대체되어 나온다 but 실제 거의 쓸일이 없다.">
+    
+
+    <!--개발자들이 즐겨 쓰는 태그 순수한 용도는 줄 맞추기가 핵심 Needs-->
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>on이벤트명 = 함수 addEventListener(이벤트명, 함수) 둘 다 필요하짓</h1>
+    <input type="button" id="btn1" value="눌러바"><br>
+    <input type="button" id="btn2" value="누울러어바아"><br>
+
+    <script>
+        var v_btn1 = document.querySelector("#btn1");
+        var v_btn2 = document.querySelector("#btn2");
+
+        /*
+        v_btn1.addEventListener("click", function () {
+            alert("오늘은 유부초밥");
+        });
+        */
+
+        /*이렇게 해야 한번만 뜸 안전한 소스
+        v_btn2.addEventListener("click", function () {
+            v_btn1.onclick = function () {
+                alert("김밥드 먹고싶다");
+            }
+
+            //이렇게 하면 누른만큼 뜬다 위험한 소스
+            v_btn1.addEventListener("click", function (){
+                alert("김밥드 먹고싶다");
+            });
+        });
+        */ // 근본적으로 2가지 차이를 명확히 이해하고 상황에 맞게 사용하기!
+
+        /* 마지막에 쓴게 덮어씀
+        v_btn1.onclick = function(){
+            alert("오늘은 유부초밥");
+        }
+        v_btn1.onclick = function(){
+            alert("김밥드 먹고싶다");
+        }
+        */
+
+        /* 두개 모두 동작
+        v_btn1.addEventListener("click", function () {
+            alert("오늘은 유부초밥");
+        });
+        v_btn1.addEventListener("click", function () {
+            alert("김밥드 먹고싶다");
+        });
+        */
+
+
+    </script>
+
+</body>
+
+</html>

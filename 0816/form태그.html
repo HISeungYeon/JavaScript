@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<!-- 서버로 값을 전송할 때 꼭 필요, 둘러싸야 함. 
+    form안의 사용자 입력태그는 꼭 name 속성을 가져야 한다. 
+     !! name 속성이 없는 사용자 입력태그는 값이 전달되지 않는다. 
+    단 AJAX 사용할 때는 제외.
+    ?n_name=ldm&n_alias=bestEnemy&n_skills=js&n_skills=css
+    queryString이라고 부름, 형식은 name=value&name=value&...
+
+    form태그는 한 페이지내에 몇번이 와도 상관 없음. 
+    단 form태그 안에 form 태그를 넣진 않음. (자주하는 실수)
+
+    method는 전송방법을 정의한다.
+    get: 주소표시줄에 넘어가는 값을 표시, 개발자에게 디버깅시 아주 편함.
+    post: 주소표시줄에 넘어가는 값이 표시가 안됨, 서버사이드 프로그램 쪽에서 
+            값을 찍어봐야 하기 때문에 디버깅 시간이 필요, 적어도 상대적으로 get보다는 보안상 유리.
+            (넘어가는 값이 안보이기 때문.)
+
+    action의 디폴트 값은 페이지 자기 자신.
+    실제 action의 값은 서버사이드 프로그래밍 페이지 
+
+    코딩한 건 얼마 안되지만,, 뒷부분 하기 위해서 꼭 필요한 것들이닷.. 허ㅓㅎ 외우기 !
+    path : 절대/상대경로, / -> C:\xampp2\htdocs -> 실제경로
+    -->
+    <form action="../0810/비디오.html" method="get">
+        <!-- 단순 화면꾸미는 태그는 있어도 없어도 관계 X-->
+        <img src="../images/문상훈4.jpg" width="300" height="300" alt=""><br>
+        이름 <input type="text" name="n_name" value="" required><br>
+        별명 <input type="text" name="n_alias" value="" required><br>
+        너 할 수 있는게 모야?<br>
+        JS<input type="checkbox" name="n_skills" value="js">
+        HTML<input type="checkbox" name="n_skills" value="html">
+        CSS<input type="checkbox" name="n_skills" value="css"><br>
+        <input type="submit" value="전송"><!--전송 버튼 nice to meet you-->
+        <input type="reset" value="원래대로!">
+
+    </form>
+    
+</body>
+</html>

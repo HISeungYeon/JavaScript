@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #wrapper{
+        width:200px;
+        height:200px;
+        border: 3px solid palegoldenrod;
+    }
+</style>
+</head>
+<body>
+    <table border="1">
+        <tbody>
+            <tr>
+                <td>이름<input type="text" tabindex ="1" value=""></td>
+                <td>별명<input type="text" tabindex ="2" value=""></td>
+            </tr>
+            <tr>
+                <!--autofocus : 먼저 포커스 되어있음.-->
+                <td>나이<input type="text" tabindex ="3" value="" autofocus></td>
+                <td>주소<input type="text" tabindex ="4" value=""></td>
+            </tr>
+            <tr>
+                <!--tabindex = 1-은 focus를 안준다. "-1" 탭에서 뺀다.-->
+                <td>노인<input type="text" tabindex ="5" value=""></td>
+                <td>노인X<input type="text" tabindex ="-1" value=""></td> 
+            </tr>
+        </tbody>
+    </table>
+    <!-- focus 를 받을 수 없는 element에 focus를 받을 수 있게 함.-->
+    <div id="wrapper" tabindex="0" contenteditable onkeydown="f_keyDown()">
+        편집이 될까 ? 텍스트 박스,,,처럼..  contenteditable 넣음 된ㄷ ㅏ !!
+    </div>
+
+<script>
+    function f_keyDown() {
+        alert(event.keyCode + " : " + event.key);
+        //div태그는 먹질 않는다.. 근데 tabindex="0"해주면 먹음.
+    }
+</script>
+</body>
+</html>

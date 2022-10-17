@@ -1,0 +1,96 @@
+* {
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+#main {
+    /* color: gold; */
+    /* border: 1px groove black; */
+    background-image: url("../images/gg.png");
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* padding: 50px; */
+}
+
+#contents {
+    display: inline-block;
+    width:100%;
+    /* padding: 10px; */
+    
+    /* border:1px solid pink; */
+}
+
+#fan {
+    text-align: center;
+}
+
+#tbl {
+    position: relative;
+    border: 3px solid gold;
+    border-radius: 5%;
+    max-width: 500px;
+    padding: 23px;
+    float: right;
+    right: 20px;
+}
+
+#comment {
+    position: relative;
+    /* border: 2px solid gray;
+    border-radius: 8px; */
+    width: 360px;
+    height: 60px;
+    /* text-align: center; */
+    margin: 0px auto 20px auto;
+    /* padding: 10px; */
+
+}
+.fanPage {
+    position: relative;
+    display: inline-block;
+    width:32.9%;
+    top: 12px;
+    /* border:1px solid black; */
+    text-align: center;
+    /* color: ; */
+}
+
+#iframe{
+    width:100%;
+    height: 550px;
+    display: none;
+}
+
+#iframe2{
+    width:500px; 
+    height: 420px; 
+    border-radius: 2%;
+    /* float: left;
+    left: 100px; */
+}
+
+.common {
+    vertical-align: top;
+    /* border: 10px solid blue; */
+    display: inline-block;
+    width:49%;
+}
+
+.right {
+    /* border: 1px solid pink; */
+    height: 400px;
+    padding-left: 20px;
+}
+
+.card {
+    width: 500px;
+    height: 100px;
+    /* top: 300px;
+    left: 300px; */
+    padding: 5px;
+}

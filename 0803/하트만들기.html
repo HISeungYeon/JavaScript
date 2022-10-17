@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #heart {
+            position: absolute;
+            left: 100px; top: 100px;
+            width: 300px;
+            height: 300px;
+            /* border: 1px solid black; */
+            overflow: hidden;
+            transform: rotate(45deg);
+            /* transform-origin: right bottom; */
+            /*회전 중심 설정*/
+
+        }
+
+        .common {
+            position: absolute;
+            border-radius: 50%; /*모서리 둥글게 둥글게 ~*/
+            background-color: crimson;
+            width: 100%; /* 부모기준으로 따라감 %를 쓰면 자식이 부모를 ㄸㅏ라감.*/
+            height: 100%; /*부모기준*/
+        }
+
+        #circle1 {
+            left: 150px;
+        }
+
+        #circle2 {
+            top: 150px;
+        }
+
+        #point {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            left: 300px;
+            top: 300px;
+            background-color: black;
+        }
+        #bar {
+            position: absolute;
+            width: 50px;
+            height: 300px;
+            background-color: aquamarine;
+            left: 235px;
+        }
+        #wrapper{
+            width: 500px;
+            height: 500px;
+            position: relative;
+            left: 300px;
+            top: 300px;
+            border: 1px solid burlywood;
+            transform-origin: center top;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="bar"></div>
+        <div id="heart">
+            <div id="circle1" class="common"></div>
+            <div id="circle2" class="common"></div>
+            <!-- <div id="point"></div> -->
+        </div>
+    </div>
+
+    <script>
+        var v_wrapper = document.querySelector('#wrapper');
+        var v_gak = 0;
+        
+        function f_rotate() {
+
+            if(v_gak = (v_gak + 10) % 45){
+                // v_gak = (v_gak + 10) % 45; //360도 나눈 나머지, 숫자 크기가 안전해짐.
+            }else{
+                v_gak = -(v_gak + 10) % 45; //360도 나눈 나머지, 숫자 크기가 안전해짐.
+
+            }
+            
+
+            v_wrapper.style.transform = "rotate(" + v_gak + "deg)";
+            setTimeout(f_rotate, 150);
+        }
+        
+        /*
+        function f_rotate(){
+            v_gak = (v_gak + 10) % 360; 
+            var v_wrappers = document.querySelectorAll
+        }
+        */
+        f_rotate(); //함수 콜
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    #image {
+        width: 300px;
+        height: 300px;
+        /* border: 5px solid blue; */
+        left: 10px;
+        display: inline-block;
+        position: relative;
+    }
+
+    .child {
+        position: absolute;
+        /* border: 5px solid blue; */
+        display: inline-block;
+        width: 6100px;
+        height: 500px;
+    }
+
+    img {
+        width: 500px;
+        height: 500px;
+        display: inline-block;
+    }
+
+    /* #imageChild2{
+        top: 500px;
+        left: 300px;
+    } */
+
+</style>
+
+<body>
+    <div id="image">
+        <div id="imageChild1" class="child">
+            <img src="../images/문상훈.jpg">
+            <img src="../images/문상훈1.jpg">
+            <img src="../images/문상훈2.jpg">
+            <img src="../images/문상훈3.jpg">
+            <img src="../images/문상훈4.jpg">
+            <img src="../images/문상훈5.jpg">
+            <img src="../images/문상훈6.jpg">
+            <img src="../images/문상훈7.jpg">
+            <img src="../images/문상훈8.jpg">
+            <img src="../images/문상훈9.jpg">
+            <img src="../images/문상훈10.jpg">
+            <img src="../images/문상훈21.jpg">
+        </div>
+
+        <div id="imageChild2" class="child">
+            <img src="../images/문상훈11.jpg">
+            <img src="../images/문상훈12.jpg">
+            <img src="../images/문상훈13.jpg">
+            <img src="../images/문상훈14.jpg">
+            <img src="../images/문상훈15.jpg">
+            <img src="../images/문상훈16.jpg">
+            <img src="../images/문상훈17.jpg">
+            <img src="../images/문상훈18.jpg">
+            <img src="../images/문상훈19.jpg">
+            <img src="../images/문상훈20.jpg">
+        </div>
+    </div>
+
+    <script>
+        var v_msh1 = document.querySelector('#imageChild1');
+        var v_msh2 = document.querySelector('#imageChild2');
+
+        
+        var v_myWidth = 10;
+        var v_num = -6300
+        function f_move() {
+            v_msh1.style.left = parseInt(v_msh1.style.left) - v_myWidth + "px";
+            v_msh2.style.left = parseInt(v_msh2.style.left) - v_myWidth + "px";
+                        
+            if (parseInt(v_msh1.style.left) <= v_num){
+                v_msh1.style.left = "5800px";
+            }
+
+            if (parseInt(v_msh2.style.left) <= v_num){
+                v_msh2.style.left = "5800px";
+            } 
+            setTimeout(f_move, 100);
+        }
+        
+        window.onload = function () {
+
+            if (!v_msh1.style.left) {
+                v_msh1.style.left = "0px";
+                v_msh2.style.left = "6500px";
+            }
+            f_move();
+        }
+
+    </script>
+</body>
+
+</html>

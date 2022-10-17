@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="2">
+        <tbody id="v_tbody">
+            <tr>
+                <th onclick="f_sortTitle()">제목</th>
+                <th onclick="f_sortWriter()">지은이</th>
+                <th onclick="f_sortContent()">내용</th>
+                <th onclick="f_sortDate()">날짜</th>
+            </tr>
+            <tr>
+                <td>하용만만세</td>
+                <td>하용</td>
+                <td>룰루루</td>
+                <td>2022-09-22</td>
+            </tr>
+            <tr>
+                <td>승훈만만세</td>
+                <td>승훈</td>
+                <td>룰루루</td>
+                <td>2022-06-12</td>
+            </tr>
+            <tr>
+                <td>아무나만만세</td>
+                <td>누가무무</td>
+                <td>룰루루</td>
+                <td>2022-05-05</td>
+            </tr>
+            <tr>
+                <td>나는문상훈이조아~</td>
+                <td>내가말하고있잖아!</td>
+                <td>오당기</td>
+                <td>2006-01-05</td>
+            </tr>
+            <tr>
+                <td>미노이의요리조리</td>
+                <td>맛있겠다</td>
+                <td>나도초대해조요</td>
+                <td>2017-02-03</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var v_tbody = document.querySelector("#v_tbody");
+        var v_trs = document.querySelectorAll("tr");
+        // v_trs는 실제로는 배열이 아님, 배열로 변환이 필요, sort를 쓰기 위해서
+        v_arrTr = [];
+        for (var i = 1; i < v_trs.length; i++) { // 0번을 뺀건 헤더라서 
+            v_arrTr.push(v_trs[i]);
+        }
+
+        function f_sortTitle() {
+            v_arrTr.sort(function (a, b) { 
+                if(a.children[0].innerHTML > b.children[0].innerHTML){
+                    return 1;
+                }else{
+                    return -1;
+                }
+            });
+
+            //정렬여부 눈으로 확인, 화면에도 결과를 반영해 주어야 함....
+            for(var i = 0; i < v_arrTr.length; i++){
+                console.log(v_arrTr[i]);
+                v_tbody.appendChild(v_arrTr[i]); // tbody에 다시 순서대로 붙이기 !
+            }
+
+
+
+            /*
+            for (var i = 0; i < v_arrTr.length; i++) {
+                console.log("======================");
+                console.log(v_arrTr[i].children[0].innerHTML); //제목
+                console.log(v_arrTr[i].children[1].innerHTML); //지은이
+                console.log(v_arrTr[i].children[2].innerHTML); //내용
+                console.log(v_arrTr[i].children[3].innerHTML); //날짜
+                console.log("======================");
+            }
+            */
+        }
+
+    </script>
+</body>
+
+</html>

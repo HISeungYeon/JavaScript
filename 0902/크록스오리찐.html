@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="뉴스가져오기" onclcik="f_check()">
+    <script>
+        //Cross Origin 개념 엄청 중요 !!! ㅎㅅㅎ  개념이 잘못되면 원래 안되는 일을 끝없이 무한반복하다가 쓰러짐 CORS!!
+        //xml은 다루기가 힘들어서 xml문자열을 json으로 바꾸어주는 변환기가 있으면 좋겠당 (스프링에선 jackson이 있음)
+        function f_check() {
+            var v_ajax = new XMLHttpRequest();
+            v_ajax.open("get", "https://news.google.com/rss/search?q=%EA%B9%80%EB%8B%A4%EB%AF%B8&hl=ko&gl=KR&ceid=KR:ko", true);
+            v_ajax.onreadystatechange = function() {
+                if (v_ajax.readyState == 4 && v_ajax.status == 200) {
+                    console.log(v_ajax.responseText);
+                }
+            }
+            v_ajax.send();
+        }
+
+        // save origin ,, 
+
+    </script>
+</body>
+
+</html>

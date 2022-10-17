@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #id_disp {
+        background-color: black;
+        color: white;
+    }
+</style>
+</head>
+<body>
+    <h1>개발자가 알아야할 css 그리 많지 않다</h1>
+    <div id = "id_disp" style="display:block;"> 
+        <!--display: block하면 보이고 none하면 안보임 (있는데 없는것처럼 자리차지도 하지 않음.)
+             + visibility:hidden (보이진 않지만 자리는 차지함.) == display:none -->
+        <h1> 승연인 항상 웃어요 하하</h1>
+    </div>
+    <input type="button" value="눌러랏" onclick="f_click()">
+    <script>
+        // 스크립트로 제어하는 스타일은 해당 태그의 inline style이다
+        var v_disp = document.querySelector("#id_disp");
+        var v_colors = ["blue", "red", "green", "black", "magenta", "pink"];
+        function f_click() {
+            if(v_disp.style.display == "none"){
+                v_disp.style.display="block";
+                return;
+            }
+            v_disp.style.display="none";
+            
+            var v_ranColor = v_colors[Math.floor(Math.random()*v_colors.length)];
+            console.log(v_ranColor);
+            v_disp.style.color=v_ranColor; //개발자툴에서 변화를 눈으로 볼 수 있음.
+            document.body.style.backgroundColor=v_ranColor;
+            setTimeout(f_click,1000); // 어처구니 없는 재귀호출
+            
+        }
+    </script>
+</body>
+</html>
